@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title> INST377 Lab 4 </title>
+        <link rel = "stylesheet" href = "JS4.css">
+    </head>
+
+<body>
+
+        <h1 id = "Heading"> INST 377 - Lab 4 </h1>
+
+    <!-- Alert Me Section -->
+    <div class = "Box" >
+        <form id = "alertForm">
+            <label for = "Name"> Name: </label>
+            <input type = "text" id = "NameInput" required>
+            <button type = "submit" onclick = "alertMe()"> Alert Me! </button>
+        </form>
+    </div>
+
+    <!-- Change Color Section -->
+    <div class = "Box">
+        <button id = "BGColor" onclick = "changeColor()"> Change Color </button>
+    </div>
+
+    <!-- Text Tester Section -->  
+    <div class = "Box"> 
+        <form name = "TForm">
+            <label for = "text">Text Tester:</label>
+            <input type = "text" id = "UText" required>
+            <button type = "submit" onclick = "textValidation()"> Validate Text </button> 
+        </form>
+    </div>
+
+    <!-- Add Text Section -->
+    <div class = "Box">
+        <button id = "ADDText" onclick = "addText()"> Add Text </button>
+    </div>
+
+</body>
+
+     <!-- Alert Me Script Section -->
+     <script type = "text/javascript">
+        function alertMe() {
+            var name = document.getElementById("NameInput").value;
+            if (name) {
+                alert("Hello, " + name + "!");
+            }
+        }
+    </script>
+
+    <!-- Change Color Script Section -->
+    <script type="text/javascript">
+        function changeColor() {
+            const CColor = document.body.style.backgroundColor;
+            if (CColor === "lightblue") {
+                document.body.style.backgroundColor = "lightpink";
+            } else {
+                document.body.style.backgroundColor = "lightblue";
+            }
+        }
+    </script>
+
+     <!-- Text Tester Script Section -->
+     <script type="text/javascript">
+        function textValidation() {
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var INPText = document.getElementById("UText").value;
+            if (validation.test(INPText)) {
+                alert("The text contains special characters.");
+                return false; 
+            }
+            return true;
+        }
+    </script>
+
+    <!-- Add Text Script Section -->
+    <script type="text/javascript">
+        function addText() {
+            var heading = document.getElementById("Heading"); 
+            heading.textContent += " Add Text"; 
+        }
+    </script>
+
+</html>
